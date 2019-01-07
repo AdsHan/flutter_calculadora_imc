@@ -27,6 +27,8 @@ class _HomeState extends State<Home> {
   GlobalKey<FormState> _formularioKey = GlobalKey<FormState>();
 
   void _inicializaFields() {
+    // Diz ao Flutter que o estado mudou, para que o framework possa executar build () e atualizar o display.
+    // Quan do utilizo o controller não é necessário, ma chamamos aqui por que existem variáveis (_infoText) fora do controller para renderizar.
     setState(() {
       pesoController.text = "";
       alturaController.text = "";
@@ -35,6 +37,7 @@ class _HomeState extends State<Home> {
   }
 
   void _calculaIMC() {
+    // Aqui não é necessário chamar o setSate
     setState(() {
       double peso = double.parse(pesoController.text);
       print(peso);
